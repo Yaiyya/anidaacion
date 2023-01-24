@@ -14,40 +14,60 @@
 </body>
 </html>
 
-* {
+body {
     padding: 0;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh ;
+    background-color:white;
 }
-
-.contenedor {
-    width: 200px;
-    height: 100px;
-    background-color: white;
-}
-.contenedor:hover {
-        /*se activa cuando el raton pasa por encima*/
-        font-style: italic;
-        background-color: green;
-        text-transform: 3s;
-        
-
-}
-
-
-.contenedor:visited {
+        .btn-contenedor {
+            text-transform: uppercase;
+            color:#333;
+            font-style: italic;
+            background-color:#ddd;
+        }
+        .btn-contenedor:hover {
+                /*se activa cuando el raton pasa por encima*/
+                background-color:green;
+        }
+.btn-contenedor {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
     color: white;
-}
-.contenedor:hover {
-    color: white;
-}
-.contenedor:active {
-    opacity: 0%;
-    transition: 2s;
+border-bottom: 10px  solid darkgreen;    
+background-color: white;
+cursor: pointer;
+transition: background-color 150ms
+
 }
 
-.contenedor:hover::before{
-    content: "¡Hecho!";
-    opacity: 200%;
+/*.btn-tooltip:hover::before{
+    content: "esto es un tooltip";
+}*/
+.contenedor{
+    position: absolute;
+    /*visibility: hidden;*/
+    opacity: 0;
+    top: -50px;
+    left: -100%;
+    transform: translateX(25%);
+    color: #ddd;
+    background-color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition:opacity  all 150ms;
 }
 
+.btn-contenedor:hover .contenedor {
+    /*visibility: visible;*/
+    opacity: 1;
+}
 
+.contenedor::before{
+    content: :;
+}
